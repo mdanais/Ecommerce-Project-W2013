@@ -1,0 +1,210 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ * {
+ 	margin: 0px;
+ 	padding: 0px;
+ }
+ 
+a{
+       text-decoration: none;
+       color: #8494E0;
+}
+
+a:hover{
+       text-decoration: underline;
+       color: #8494E0;
+}
+html {
+       background-color: black;
+}
+
+body{
+       	background-color: #000000;
+        color: #FFF;
+}
+ #wrapper{
+        padding-top: 30px;
+ 	width: 1000px;
+ 	background-color: #000000;
+        margin: 0px auto;
+        
+ }
+ 
+ #header{
+       width: 100%;
+       min-height: 150px;
+       background-image: url('header_boat.png');
+       color: #000;
+ }
+ 
+ #header_forms{
+       width: 330px;
+       height: 150px;
+       float: right;
+ }
+ 
+ #cart{
+    width: 65px;
+    margin-left: 80%;
+    margin-top: 72px;
+    
+ }
+ #cart_image{
+       width: 50px;
+       height: 50px;
+       
+ }
+ 
+ #search_div{
+       float:left;
+       margin-left: 35px;
+       margin-top: 57px;
+ }
+ 
+ #connect{
+       position: static;
+       padding: 5px;
+       margin-top: 5px;
+       margin-left: 20px;
+}
+ 
+ #phone_number{
+       position: inherit;
+       font-weight: bold;
+       font-size: 20pt;
+       display: inline;
+ }
+
+ #side_nav{
+ 	width: 20%;
+        margin-top: 20px;
+ 	background-image: url(/assets/nav_strip.png);
+        background-size: 100% 100%;
+        color: #000;
+ 	float:left;
+ }
+ 
+#side_nav ul{
+       margin-top: 40px;
+       margin-bottom: 40px;
+       list-style: none;
+       text-align: center;
+}
+
+#side_nav ul li{
+       margin-top: 40px;
+
+}
+
+ #main_content{
+ 	width: 77%;
+        padding: 10px;
+        min-height: 450px;
+ 	background-color: #000000;
+        color: #fff;
+ 	float: left;
+ }
+ 
+ #main_page_photo{
+    width:500px;
+    margin: 0px auto;
+    border: 10px solid #fff;
+ }
+ 
+ 
+ 
+ 
+.center_text{
+       text-align: center;
+       font-size: 60%;
+}
+
+#service_box{
+       width: 600px;
+       margin: 40px 75px;
+       background-color: #fff;
+       border: 2px solid #fff;
+       color: #000;
+       display: inline-block;
+}
+
+
+.colorize{
+       background-color: black;
+       color: white;
+       text-align: center;
+}
+.service_box_image{
+       float: left;
+       width: 30%;
+       padding: 10px;
+}
+.service_box_text{
+       float: left;
+       margin-right: 20px;
+       width: 55%;
+       font-size: 80%;
+      text-align: center;
+}
+.service_box_text p{
+       text-align: left;
+}
+
+
+.table{
+       width: 100%;
+}
+
+.invoice_printout {
+       background-color: #fff;
+       color: #000;
+       padding: 10px;
+}
+
+td, th{
+       text-align: left;
+}
+
+tr:nth-child(even) {
+       background-color: #D7D8FD;
+
+}
+
+
+
+ 
+ #footer{
+       margin-top: 30px;
+       margin-bottom: 30px;
+ 	width: 100%;
+ 	background-color: #ffffff;
+ 	clear:both;
+        color: #000;
+ }
+ 
+ #footer ul{
+       margin-top: 30px;
+       margin-bottom: 0px;
+       
+       list-style: none;
+       text-align: center;
+}
+
+#footer ul li{
+       display: inline-block;
+       padding: 0 10px;
+       font-size: 0.80em;
+
+}

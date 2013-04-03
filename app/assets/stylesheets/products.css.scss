@@ -1,0 +1,27 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#product {
+    margin-top: 10px;
+   width: 100%;
+   padding: 10px;
+    border: 1px solid #fff;
+}
+
+#product_image{
+    background-color: #fff;
+    padding: 10px;
+    width: 200px;
+    display: inline-block;
+    
+}
+
+#product_info{
+    float:right;
+    width: 40%;
+}
+
+#product_form{
+    clear: both;
+}

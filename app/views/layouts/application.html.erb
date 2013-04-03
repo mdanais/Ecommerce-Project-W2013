@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <title>MB Photo & Design</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <%= link_to image_tag('MB Logo.png', :height => '100'), root_path %>
+      <div id="header_forms">
+        <form >
+          <div id="search_div">
+            <label for="search_box" >Search</label>
+            <input id="seach_box" name="search_box" placeholder="Enter Search Here." />  
+          </div>
+          
+            <div id = "cart"><p><%= image_tag  @cart_image, :id => 'cart_image' %><br/>
+            Items(<%= @in_cart_total %>)</p>
+            
+            </div>
+          
+        </form>
+        
+      </div>
+      <div id="connect">
+        <%= link_to image_tag('facebook.png', :width => '30', :class =>'connect_logos'), "http://www.facebook.com/" %>
+        <%= link_to image_tag('email.png', :width => '30', :class =>'connect_logos'), "mailto:mdanais@academic.rrc.ca" %>
+        <p id="phone_number">204-555-5555</p>
+      </div>
+    </header>
+      
+    <aside id="side_nav">
+      <ul>
+        <li><%= link_to_unless_current 'HOME', root_path %></li>
+        <li><%= link_to_unless_current 'PRODUCTS', products_path %></li>
+        <li><%= link_to_unless_current 'SERVICES', services_path %></li>
+        <li><%= link_to_unless_current 'ABOUT US', about_us_path %></li>
+      </ul>
+    </aside>
+    
+    
+    <section id="main_content">
+       <%= yield %>
+    </section>
+    
+    <footer id="footer">
+      <ul>
+        <li><%= link_to_unless_current 'HOME', root_path %></li>
+        <li><%= link_to_unless_current 'PRODUCTS', products_path %></li>
+        <li><%= link_to_unless_current 'SERVICES', services_path %></li>
+        <li><%= link_to_unless_current 'ABOUT US', about_us_path %></li>
+      </ul>
+      <p class="center_text">Copyright&#169; MB Photo &amp; Design <%= Time.now.year %></p>
+    </footer>
+    
+    
+  </div>
+
+
+
+</body>
+</html>

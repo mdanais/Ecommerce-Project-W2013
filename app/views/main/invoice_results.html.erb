@@ -1,0 +1,66 @@
+
+
+<h1>Thank You For Your Purchase</h1>
+
+<br/>
+<div class="invoice_printout">
+  <h2>Customer Information</h2>
+<p>Name: </p>
+<p>Address: </p>
+<p>City:\tProvince:\tPostal Code: </p>
+</div>
+
+
+<div class="invoice_printout">
+<p>Order ID: </p>
+<table class="table">
+  <tr>
+    <th>Product</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
+  </tr>
+ 
+  <% @products.each do |product| %>
+  <tr class="items">
+    <td><%= product.name%></td>
+    <td><%= product.description%></td>
+    <td>5</td>
+    <td>$123.45</td>
+    <td> $123.45</td>
+  </tr>
+  <% end %> 
+</table>
+</div >
+
+<div class="invoice_printout" >  
+<h2>Summary</h2>
+<table class="table">
+  <tr>
+    <td></td>
+    <td>Subtotal:</td>
+    <td>$123.45</td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>PST:</td>
+    <td>$123.45</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>GST:</td>
+    <td>$123.45</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>HST:</td>
+    <td>$123.45</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Final Total:</td>
+    <td>$1234.56</td>
+  </tr> 
+</table>
+</div>

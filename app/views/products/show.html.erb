@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @product.name, :width => '790' %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Price: $</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @product.category %>
+</p>
+
+
+<%= link_to 'Home', root_path %> |
+<%= link_to 'Products', products_path %>
+    <form id="product_form">
+    <input type="submit" name="product_to_cart" value="Add To Cart" />
+  </form>
