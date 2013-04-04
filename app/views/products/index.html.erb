@@ -1,21 +1,6 @@
 <h1>Photograph Listings</h1>
 <%= paginate @products %>
 
-<% @products.each do |product| %>
-<div id="product">
-  <div id="product_image">
-  <%= link_to image_tag(product.name, :width =>'200'), product_path(product) %>
-  </div>
-  <div id="product_info">
-  <p>Category: <%= product.category %></p>
-  <p>Description: <%= product.description %></p>
-  <p>Price: <%= number_to_currency product.price %></p>
-    <form id="product_form">
-    <input type="submit" name="product_to_cart" value="Add To Cart" />
-  </form>
-  </div>
-
-</div>
-<% end %>
+<%= render @products %>
 <br />
 

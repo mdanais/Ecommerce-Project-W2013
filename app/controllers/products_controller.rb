@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   # GET /products
   # GET /products.json
   def index
@@ -10,18 +11,15 @@ class ProductsController < ApplicationController
     end
   end
 
-
+ def results
+   @keyword = params[:query]
+   @products = Product.where("Name LIKE ? OR Category LIKE ? OR Description LIKE ? ", "%#{@keyword}%", "%#{@keyword}%", "%#{@keyword}%").order("name").page(params[:page]).per(10)
+ end
+ 
   # GET /products/1
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
- 
-     @in_cart_total = 0
-    if @in_cart_total > 0
-    @cart_image = 'Shopping_Cart_Full.png'
-    else
-    @cart_image = 'Shopping_Cart_Empty.png'
-    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,7 +31,7 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
@@ -88,4 +86,6 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
 end

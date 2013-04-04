@@ -1,0 +1,10 @@
+<h1>Search Results</h1>
+
+<% if @products.empty? %>
+  <p>Your search came up with no results.</p>
+<% else %>
+  
+    <%= paginate @products %>
+    
+ <%= render @products %>
+<% end %>

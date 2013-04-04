@@ -12,10 +12,13 @@
     <header id="header">
       <%= link_to image_tag('MB Logo.png', :height => '100'), root_path %>
       <div id="header_forms">
-        <form >
+        
           <div id="search_div">
-            <label for="search_box" >Search</label>
-            <input id="seach_box" name="search_box" placeholder="Enter Search Here." />  
+
+            <%= form_tag results_path, :method => "get" do %>
+            <%= submit_tag "Search" %> 
+            <%= text_field_tag :query %>
+            <% end %>
           </div>
           
             <div id = "cart"><p><%= image_tag  @cart_image, :id => 'cart_image' %><br/>
@@ -23,11 +26,11 @@
             
             </div>
           
-        </form>
+        
         
       </div>
       <div id="connect">
-        <%= link_to image_tag('facebook.png', :width => '30', :class =>'connect_logos'), "http://www.facebook.com/" %>
+        <%= link_to image_tag('facebook.png', :width => '30', :class =>'connect_logos'), "https://www.facebook.com/MB.PhotoAndDesign/" %>
         <%= link_to image_tag('email.png', :width => '30', :class =>'connect_logos'), "mailto:mdanais@academic.rrc.ca" %>
         <p id="phone_number">204-555-5555</p>
       </div>
@@ -35,6 +38,7 @@
       
     <aside id="side_nav">
       <ul>
+        <li><%= link_to_unless_current 'ADMIN', admin_root_path %></li>
         <li><%= link_to_unless_current 'HOME', root_path %></li>
         <li><%= link_to_unless_current 'PRODUCTS', products_path %></li>
         <li><%= link_to_unless_current 'SERVICES', services_path %></li>
@@ -49,6 +53,7 @@
     
     <footer id="footer">
       <ul>
+        <li><%= link_to_unless_current 'ADMIN', admin_root_path %></li>
         <li><%= link_to_unless_current 'HOME', root_path %></li>
         <li><%= link_to_unless_current 'PRODUCTS', products_path %></li>
         <li><%= link_to_unless_current 'SERVICES', services_path %></li>

@@ -1,4 +1,7 @@
 MbPhotoDesign::Application.routes.draw do
+  resources :categories
+
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -22,14 +25,15 @@ MbPhotoDesign::Application.routes.draw do
   
   root :to => 'main#index'
   
-   match "about_us" => "main#about_us", :via => :get, :as => 'about_us'
+  match "about_us" => "main#about_us", :via => :get, :as => 'about_us'
         #  URL      CONTROL#ACTION        HTTP VERB    ROUTE NAME
 
   match "services" => "main#services", :via => :get, :as => 'services'
   match "contact_us" => "main#contact_us", :via => :get, :as => 'contact_us'
-  
-   match "invoice_results" => "main#invoice_results", :via => :get, :as => 'invoice_results'
+  match "results" => "products#results", :via =>:get, :as => 'results'
+  match "invoice_results" => "main#invoice_results", :via => :get, :as => 'invoice_results'
    
+
   
   
   

@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   
   def index
+    #session['cart_items']
     @photo_array = Array.new
     @products = Product.where("Category IN('Nature','Landscape', 'Town & Country')")
     
@@ -22,48 +23,20 @@ class MainController < ApplicationController
     @count_service_product = @service_array.count
     @random_number2 = rand(1..@count_service_product)
     @service_product = @service_array[@random_number2]
-    
-    @in_cart_total = 1
-    if @in_cart_total > 0
-    @cart_image = 'Shopping_Cart_Full.png'
-    else
-    @cart_image = 'Shopping_Cart_Empty.png'
-    end
 
   end
   
-  def about_us
-    @in_cart_total = 0
-    if @in_cart_total > 0
-    @cart_image = 'Shopping_Cart_Full.png'
-    else
-    @cart_image = 'Shopping_Cart_Empty.png'
-  end
-  
+  def about_us  
   
   end
   
   def services
   @products = Product.where("Category IN('Portrait','Rides', 'Sports')").order("category")
-  
-      @in_cart_total = 0
-    if @in_cart_total > 0
-    @cart_image = 'Shopping_Cart_Full.png'
-    else
-    @cart_image = 'Shopping_Cart_Empty.png'
-    end
-  
+
   end
 
 def contact_us
-  
-      @in_cart_total = 0
-    if @in_cart_total > 0
-    @cart_image = 'Shopping_Cart_Full.png'
-    else
-    @cart_image = 'Shopping_Cart_Empty.png'
-    end
-  
+
 end
 
 
