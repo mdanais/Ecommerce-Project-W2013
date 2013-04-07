@@ -1,4 +1,6 @@
 MbPhotoDesign::Application.routes.draw do
+  
+  root :to => 'main#index'
   resources :categories
 
 
@@ -23,7 +25,7 @@ MbPhotoDesign::Application.routes.draw do
 
   resources :provinces
   
-  root :to => 'main#index'
+  
   
   match "about_us" => "main#about_us", :via => :get, :as => 'about_us'
         #  URL      CONTROL#ACTION        HTTP VERB    ROUTE NAME

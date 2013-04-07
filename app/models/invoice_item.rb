@@ -3,6 +3,6 @@ class InvoiceItem < ActiveRecord::Base
   validates :product_id, :quantity, :taxes, :total, :presence => true
   
   belongs_to :order
-  has_many :products
+  belongs_to :product
   
 end

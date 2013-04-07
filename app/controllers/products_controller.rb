@@ -13,7 +13,8 @@ class ProductsController < ApplicationController
 
  def results
    @keyword = params[:query]
-   @products = Product.where("Name LIKE ? OR Category LIKE ? OR Description LIKE ? ", "%#{@keyword}%", "%#{@keyword}%", "%#{@keyword}%").order("name").page(params[:page]).per(10)
+   @products = Product.where("Name LIKE ? OR Category LIKE ? OR Description LIKE ? ",
+                             "%#{@keyword}%", "%#{@keyword}%", "%#{@keyword}%").order("name").page(params[:page]).per(10)
  end
  
   # GET /products/1

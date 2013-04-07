@@ -5,4 +5,8 @@ class Customer < ActiveRecord::Base
   
   belongs_to :province
   has_many :orders
+  
+  def name
+    self.first_name + " " + self.last_name
+  end
 end
