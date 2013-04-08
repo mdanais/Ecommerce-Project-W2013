@@ -34,6 +34,10 @@ MbPhotoDesign::Application.routes.draw do
   match "contact_us" => "main#contact_us", :via => :get, :as => 'contact_us'
   match "results" => "products#results", :via =>:get, :as => 'results'
   match "invoice_results" => "main#invoice_results", :via => :get, :as => 'invoice_results'
+  match "cart" => "main#cart", :via => :get, :as => 'cart'
+  match "add_to_cart" => "main#add_to_cart", :via => :post, :as => 'add_to_cart'
+  match "delete_from_cart" => "main#delete_from_cart", :via => :post, :as => 'delete_from_cart'
+  match "clear_cart" => "main#clear_cart", :via => :get, :as => 'clear_cart'
    
 
   

@@ -6,9 +6,13 @@
           <p>Category: <%= product.category %></p>
           <p>Description: <%= product.description %></p>
           <p>Price: <%= number_to_currency product.price %></p>
-            <form id="product_form">
-            <input type="submit" name="product_to_cart" value="Add To Cart" />
-          </form>
+
+            
+          <%= form_tag add_to_cart_path do %>
+            <%= hidden_field_tag(:product_id, "#{product.id}") %>
+            <%= submit_tag("Add To Cart") %>
+            
+          <% end %>
           </div>
         
         </div>

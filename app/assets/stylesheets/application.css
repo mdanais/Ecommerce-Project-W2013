@@ -90,6 +90,7 @@ body{
  #side_nav{
  	width: 20%;
         margin-top: 20px;
+        margin-left: 10px;
  	background-image: url(/assets/nav_strip.png);
         background-size: 100% 100%;
         color: #000;

@@ -47,4 +47,50 @@ def invoice_results
   @products = Product.where("Category = 'Nature'")
 end
 
+def cart
+
+end
+
+def add_to_cart
+  index_num = 0
+  found = false
+  
+  session['cart_items'].each_with_index do |hash, index|
+    if hash[:product_id] == params[:product_id]
+      index_num = index
+      found = true
+    end
+  end
+  
+  
+  
+  #@temp_item = session['cart_items'].find {|item| item[:id] == cc}
+  
+  if found
+    #increment the qty
+    session['cart_items'][index_num][:qty] += 1
+  
+  else
+  #create a entry of hashes
+  session['cart_items'] << {:product_id => params[:product_id], :qty => 1}
+    
+  end
+  redirect_to products_path
+end
+
+def delete_from_cart
+
+
+  session['cart_items'].delete(params[:product_id])
+
+  redirect_to cart_path
+end
+
+
+def clear_cart
+  session['cart_items'] = []
+  redirect_to products_path
+end
+
+
 end

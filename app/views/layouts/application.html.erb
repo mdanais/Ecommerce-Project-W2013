@@ -21,8 +21,9 @@
             <% end %>
           </div>
           
+           
             <div id = "cart"><p><%= image_tag  @cart_image, :id => 'cart_image' %><br/>
-            Items(<%= @in_cart_total %>)</p>
+            <%= link_to "Items(#{@cart_item_number})", cart_path %>  </p>
             
             </div>
           

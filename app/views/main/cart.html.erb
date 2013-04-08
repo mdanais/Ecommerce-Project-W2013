@@ -1,0 +1,26 @@
+<h1>Shopping Cart</h1>
+
+<% if @items_in_cart.count == 0 %>
+  <h2>There are no items in the your cart.</h2>
+<% else %>
+  <%= link_to "Clear Cart", clear_cart_path %>
+  <% @items_in_cart.each do |hash| %>
+    <div id="product">
+      <div id="product_image">
+      <%= link_to image_tag(hash[:product].name, :width =>'200'), product_path(hash[:product]) %>
+      </div>
+      <div id="product_info">
+      <p>Qty: <%= hash[:qty] %></p>
+      <p>Price: <%= number_to_currency hash[:product].price %></p>
+      <p>Total: <%= number_to_currency (hash[:qty] * hash[:product].price) %></p>
+
+      <%= form_tag delete_from_cart_path do %>
+        <%= hidden_field_tag(:product_id, "#{hash[:product].id}") %>
+        <%= submit_tag("Remove") %>
+        
+      <% end %>
+      </div>
+    
+    </div>
+  <% end %>
+<% end %>
