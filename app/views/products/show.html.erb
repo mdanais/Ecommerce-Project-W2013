@@ -22,6 +22,9 @@
 
 <%= link_to 'Home', root_path %> |
 <%= link_to 'Products', products_path %>
-    <form id="product_form">
-    <input type="submit" name="product_to_cart" value="Add To Cart" />
-  </form>
+
+
+<%= form_tag add_to_cart_path do %>
+<%= hidden_field_tag(:product_id, "#{@product.id}") %>
+<%= submit_tag("Add To Cart") %>
+<% end %>

@@ -41,10 +41,26 @@ end
 
 
 def invoice_results
-  @invoice_items =""
-  @order = ""
-  @customer = ""
-  @products = Product.where("Category = 'Nature'")
+  @customer = Customer.find(params[:id])
+  #customer has many orders that must be build
+  @order = @customer.orders.build
+  @order.save
+  
+
+  
+  @items_in_cart.each do |item|
+  @invoice_item = @order.invoice_items.build
+  @invoice_item.product = item[:product]
+  @invoice_item.quantity = item[:qty]
+  @invoice_item.taxes = item[:product].price
+  @invoice_item.total = @invoice_item.quantity * @invoice_item.taxes
+  #create a subtotal here Do migrations to add collums
+  @invoice_item.save
+end
+ #add the total to the subtotal value
+ #variable customer.province.gst etc
+ #order.save
+
 end
 
 def cart
@@ -64,7 +80,6 @@ def add_to_cart
   
   
   
-  #@temp_item = session['cart_items'].find {|item| item[:id] == cc}
   
   if found
     #increment the qty
@@ -79,9 +94,23 @@ def add_to_cart
 end
 
 def delete_from_cart
-
-
-  session['cart_items'].delete(params[:product_id])
+  index_num = 0
+  found = false
+  
+  session['cart_items'].each_with_index do |hash, index|
+    if hash[:product_id] == params[:product_id]
+      index_num = index
+      found = true
+    end
+  end
+  
+  
+  
+  
+  if found
+    #increment the qty
+    session['cart_items'].delete_at(index_num)
+  end
 
   redirect_to cart_path
 end
@@ -92,5 +121,11 @@ def clear_cart
   redirect_to products_path
 end
 
+def customer_information
+@customer = Customer.new
+@provinces = Province.all
+@order = Order.new
 
 end
+
+end#End of class

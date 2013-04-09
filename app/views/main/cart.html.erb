@@ -4,12 +4,19 @@
   <h2>There are no items in the your cart.</h2>
 <% else %>
   <%= link_to "Clear Cart", clear_cart_path %>
+
+  
+  <%= form_tag customer_information_path, :method => "get" do %>
+  <%= submit_tag "Checkout" %>
+  <% end %>
+          
+          
   <% @items_in_cart.each do |hash| %>
-    <div id="product">
-      <div id="product_image">
-      <%= link_to image_tag(hash[:product].name, :width =>'200'), product_path(hash[:product]) %>
+    <div id="product_cart">
+      <div id="product_image_cart">
+      <%= link_to image_tag(hash[:product].name, :width =>'50'), product_path(hash[:product]) %>
       </div>
-      <div id="product_info">
+      <div id="product_info_cart">
       <p>Qty: <%= hash[:qty] %></p>
       <p>Price: <%= number_to_currency hash[:product].price %></p>
       <p>Total: <%= number_to_currency (hash[:qty] * hash[:product].price) %></p>

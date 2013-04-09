@@ -4,8 +4,15 @@
 
 #product {
     margin-top: 10px;
-   width: 100%;
-   padding: 10px;
+   width: 98%;
+   padding: 5px;
+    border: 1px solid #fff;
+}
+
+#product_cart {
+    margin-top: 10px;
+   width: 98%;
+   padding: 5px;
     border: 1px solid #fff;
 }
 
@@ -17,9 +24,28 @@
     
 }
 
+#product_image_cart{
+    padding: 5px;
+    width: 40px;
+    display: inline-block;
+    
+}
+
 #product_info{
     float:right;
     width: 40%;
+}
+
+#product_info_cart{
+    border: 1px solid red;
+    float:right;
+    width: 50%;
+    margin-top: 10px;
+}
+
+#product_info_cart p, #product_info_cart form{
+    display: inline-block;
+    padding-right: 15px;
 }
 
 #product_form{
