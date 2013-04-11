@@ -1,4 +1,7 @@
 class MainController < ApplicationController
+    before_filter :initialize_cart
+  
+  
   
   def index
     #session['cart_items']
@@ -41,6 +44,12 @@ end
 
 
 def invoice_results
+  @subtotal_invoice = 0.0
+  @pst_amount_invoice = 0.0
+  @gst_amount_invoice = 0.0
+  @hst_amount_invoice = 0.0
+  
+  @grand_total_invoice = 0.0
   @customer = Customer.find(params[:id])
   #customer has many orders that must be build
   @order = @customer.orders.build
@@ -54,12 +63,30 @@ def invoice_results
   @invoice_item.quantity = item[:qty]
   @invoice_item.taxes = item[:product].price
   @invoice_item.total = @invoice_item.quantity * @invoice_item.taxes
-  #create a subtotal here Do migrations to add collums
+  @subtotal_invoice = @subtotal_invoice + @invoice_item.total
   @invoice_item.save
 end
- #add the total to the subtotal value
- #variable customer.province.gst etc
- #order.save
+
+@order_itmes_counter = @order.invoice_items.count
+#variable customer.province.gst etc
+
+@gst_amount_invoice = (@customer.province.gst / 100) * @subtotal_invoice
+@pst_amount_invoice = (@customer.province.pst  / 100) * @subtotal_invoice
+@hst_amount_invoice = (@customer.province.hst  / 100) * @subtotal_invoice
+
+@grand_total_invoice = @subtotal_invoice + @pst_amount_invoice + @gst_amount_invoice + @hst_amount_invoice
+
+#default time within sql table?????
+@order.date = Time.new
+@order.subtotal = @subtotal_invoice.round(2)
+@order.pst_amount = @pst_amount_invoice.round(2)
+@order.gst_amount = @gst_amount_invoice.round(2)
+@order.hst_amount = @hst_amount_invoice.round(2)
+@order.grand_total = @grand_total_invoice
+@order.save
+
+session['cart_items'] = []
+
 
 end
 
@@ -127,5 +154,7 @@ def customer_information
 @order = Order.new
 
 end
+
+
 
 end#End of class

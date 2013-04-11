@@ -118,12 +118,16 @@ body{
  	float: left;
  }
  
- #main_page_photo{
-    width:500px;
-    margin: 0px auto;
+ #product_image_front{
+    max-height: 250px;
+    margin-left: 25%;
+    display: inline-block;
     border: 10px solid #fff;
  }
  
+ #service_image_front{
+    width: 175px;
+ }
  
  
  

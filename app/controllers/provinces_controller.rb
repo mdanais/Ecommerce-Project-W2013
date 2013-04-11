@@ -1,4 +1,5 @@
 class ProvincesController < ApplicationController
+  before_filter :initialize_cart
   # GET /provinces
   # GET /provinces.json
   def index

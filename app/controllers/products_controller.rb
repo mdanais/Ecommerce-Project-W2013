@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+before_filter :initialize_cart  
   # GET /products
   # GET /products.json
   def index

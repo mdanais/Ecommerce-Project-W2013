@@ -1,4 +1,5 @@
 class InvoiceItemsController < ApplicationController
+  before_filter :initialize_cart
   # GET /invoice_items
   # GET /invoice_items.json
   def index
